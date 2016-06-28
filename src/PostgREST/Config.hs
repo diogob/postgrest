@@ -44,6 +44,7 @@ data AppConfig = AppConfig {
   , configJwtSecret :: Secret
   , configPool      :: Int
   , configMaxRows   :: Maybe Integer
+  , configSessionFn :: Maybe String
   , configQuiet     :: Bool
   }
 
@@ -57,7 +58,8 @@ argParser = AppConfig
   <*> (secret . cs <$>
       strOption    (long "jwt-secret" <> short 'j' <> help "secret used to encrypt and decrypt JWT tokens" <> metavar "SECRET" <> value "secret" <> showDefault))
   <*> option auto  (long "pool"       <> short 'o' <> help "max connections in database pool" <> metavar "COUNT" <> value 10 <> showDefault)
-  <*> (readMay <$> strOption  (long "max-rows"   <> short 'm' <> help "max rows in response" <> metavar "COUNT" <> value "infinity" <> showDefault))
+  <*> (readMay <$> strOption (long "max-rows"   <> short 'm' <> help "max rows in response" <> metavar "COUNT" <> value "infinity" <> showDefault))
+  <*> (readMay <$> strOption (long "session-fn" <> short 'f' <> help "name of a function to be called before each request" <> metavar "FUNCTION" <> value "no function is called" <> showDefault))
   <*> pure False
 
 defaultCorsPolicy :: CorsResourcePolicy
