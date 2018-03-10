@@ -1,8 +1,7 @@
-resolver: lts-10.7
+resolver: lts-10.8
 extra-deps:
   - configurator-ng-0.0.0.1
   - critbit-0.2.0.0
-  - hjsonschema-1.5.0.1
   - Ranged-sets-0.3.0
 ghc-options:
   postgrest: -O2 -Werror -Wall -fwarn-identities -fno-warn-redundant-constraints
