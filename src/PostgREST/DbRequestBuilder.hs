@@ -236,7 +236,7 @@ getJoinConds level (Relation t cols ft fcs typ lt lc1 lc2) =
     Child  -> zipWith (toJoinCond (tN, level) (ftN, level - 1)) cols fcs
     Parent -> zipWith (toJoinCond (tN, level) (ftN, level - 1)) cols fcs
     Many   -> zipWith (toJoinCond (tN, level) (ltN, level)) cols (fromMaybe [] lc1) ++ zipWith (toJoinCond (ftN, level - 1) (ltN, level)) fcs (fromMaybe [] lc2)
-    Root   -> undefined
+    Root   -> panic "should never happen"
   where
     s = if typ == Parent then "" else tableSchema t
     tN = tableName t
