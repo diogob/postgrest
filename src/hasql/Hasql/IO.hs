@@ -47,7 +47,7 @@ getIntegerDatetimes c =
 {-# INLINE initConnection #-}
 initConnection :: LibPQ.Connection -> IO ()
 initConnection c =
-  void $ LibPQ.exec c "SET client_encoding = 'UTF8'; SET client_min_messages TO WARNING;"
+  void $ LibPQ.exec c "SET client_encoding = 'UTF8';"
 
 {-# INLINE getResults #-}
 getResults :: LibPQ.Connection -> Bool -> ResultsDecoders.Results a -> IO (Either CommandError a)

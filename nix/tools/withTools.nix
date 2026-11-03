@@ -25,6 +25,7 @@ let
         listen_addresses = ''
         log_statement = all
         shared_preload_libraries=pg_stat_statements
+        client_min_messages = 'warning'
       "
         + config
       );

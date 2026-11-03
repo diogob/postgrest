@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file. From versio
 
 ### Changes
 
+- Remove `SET client_min_message TO WARNING` from database connection initialization (use current GUC value instead) by @diogob in #?.
 - Add schema cache query logging on `log-query=true` and `log-level=info|debug` by @steve-chavez in #5285
 - Remove deprecated JSPath DSL syntax for `jwt-role-claim-key` config by @taimoorzaeem in #5192
 - Add the `Server-Timing` header to error responses by @mkleczek in #5294
